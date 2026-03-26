@@ -1,0 +1,11 @@
+version
+hash_bloque_anterior
+merkle_root (resumen de transacciones)
+timestamp
+target (dificultad)
+nonce
+
+hash = SHA256(SHA256(header))
+
+hash < target
+
