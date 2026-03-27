@@ -1,0 +1,31 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# parametros ajustables
+a = 3.0
+b = 1.0
+eps = 1e-3
+
+# dominio evitando singularidad
+theta1 = np.linspace(-np.pi, -eps, 2000)
+theta2 = np.linspace(eps, np.pi, 2000)
+
+theta = np.concatenate([theta1, theta2])
+
+# funcion radial
+r = a + b * np.tan(theta / 2)
+
+# conversion cartesiana
+x = r * np.cos(theta)
+y = r * np.sin(theta)
+
+# grafica
+plt.figure()
+plt.plot(x, y)
+plt.axhline(0)
+plt.axvline(0)
+plt.gca().set_aspect('equal', adjustable='box')
+plt.grid()
+
+plt.title("Curva tipo tapiz con singularidad angular")
+plt.show()
